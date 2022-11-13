@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>М. Зейделя</title>
+	<link rel="stylesheet" href="style.css" media="screen">
+	<meta name="theme-color" content="#478ac9">
+	<script src="script.js"></script>
+</head>
+
+<body data-lang="ru">
+	<div style="overflow:scroll; white-space:nowrap;">
+		<div style="width:60%; display:inline-block;">
+			<h4>Решение СЛАУ итерационным методом Зейделя:</h4>
+			<table border="1">
+				<colgroup>
+					<col width="9%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+					<col width="13%">
+				</colgroup>
+				<tbody>
+					<tr style="height: 50px;">
+						<td>i</td>
+						<td>a[i][1]</td>
+						<td>a[i][2]</td>
+						<td>a[i][3]</td>
+						<td>a[i][4]</td>
+						<td>a[i][5]</td>
+						<td>a[i][6]</td>
+						<td>b[i]</td>
+					</tr>
+					<tr id="0">
+						<td>1</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>2</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>3</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>4</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>5</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>6</td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+						<td><input type="number" placeholder="0"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="width:10%; display:inline-block;"></div>
+		<div style="width:29%; display:inline-block;">
+			<h4>Результат:</h4>
+			<table border="1">
+				<colgroup>
+					<col width="10%">
+					<col width="20%">
+				</colgroup>
+				<tbody>
+					<tr style="height: 50px;">
+						<td>i</td>
+						<td>x[i]</td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>1</td>
+						<td id="x0"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>2</td>
+						<td id="x1"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>3</td>
+						<td	id="x2"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>4</td>
+						<td	id="x3"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>5</td>
+						<td	id="x4"></td>
+					</tr>
+					<tr style="height: 50px;">
+						<td>6</td>
+						<td	id="x5"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div style="white-space:nowrap; margin-top: 40px;">
+		<button style="width:30%; display:inline-block; height: 40px;" onclick="reset()">Сбросить значения
+			ячеек</button>
+		<div style="width:20%; display:inline-block;"></div>
+		<button style="width:30%; display:inline-block; height: 40px;" onclick="resolve()">Провести расчёты</button>
+	</div>
+</body>
+
+</html>

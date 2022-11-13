@@ -1,0 +1,15 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input[type=number] {
+  width: 95%;
+  height: 50px;
+  border: 0;
+}
