@@ -3,8 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   compute(arr) {
-    console.log('doing smt');
-    to_float_array(arr);
+    this.to_float_array(arr);
 
     let a = [], b = [];
     for (let i = 0; i < 6; i++) {
@@ -17,9 +16,9 @@ export class AppService {
     }
 
     // приведение исходной матрицы к нормальному виду
-    let At = TransMatrix(a);
-    a = MultiplyMatrix(At, a);
-    b = MultiplyMatrix(At, b);
+    let At = this.TransMatrix(a);
+    let a2 = this.MultiplyMatrix(At, a);
+    let b2 = this.MultiplyMatrix(At, b);
 
     // вычисление решения
     let x = [0, 0, 0, 0, 0, 0];
@@ -32,25 +31,24 @@ export class AppService {
       for (let i = 0; i < 6; i++) {
         inaccuracy = 0;
         x_i_old = x[i];
-        x[i] = b[i][0];
+        x[i] = b2[i][0];
         for (let j = 0; j < 6; j++) {
           if (i == j) continue;
-          x[i] -= a[i][j] * x[j];
+          x[i] -= a2[i][j] * x[j];
         }
-        x[i] /= a[i][i];
+        x[i] /= a2[i][i];
         if (isNaN(x[i])) {
           computing = 0;
           break;
         }
-        inaccuracy += Math.pow(x - x_i_old, 2);
+        inaccuracy += Math.pow(x[i] - x_i_old, 2);
       }
       if (inaccuracy <= eps) {
         computing = 0;
       }
     }
 
-    let res = stringify_array(x);
-    console.log(res);
+    let res = this.stringify_array(x);
 
     return res;
   }
@@ -65,7 +63,7 @@ export class AppService {
   }
 
   to_float_array(str) {
-    let res = a.split(' ').map(Number);
+    let res = str.split(' ').map(Number);
     return res;
   }
 

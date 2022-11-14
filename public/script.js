@@ -19,14 +19,18 @@ async function resolve() {
 	let stringArr = stringify_array(arr);
 
 	let response = await fetch("/compute/" + stringArr);
+	let resString = "";
 	if (response.status == 204) {
+		console.log(response);
 		let resString = await response.text();
 		console.log(resString);
 	} else {
+		clear_output();
 		alert("Ошибка HTTP: " + response.status);
+		return;
 	}
 
-
+	let x = resString.split(' ');
 	// вывод ответа
 	for (let i = 0; i < 6; i++) {
 		if (isNaN(x[i])) {
