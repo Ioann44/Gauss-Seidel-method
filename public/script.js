@@ -12,7 +12,7 @@ async function resolve() {
 	// считать значения ячеек
 	let arrStart = document.getElementsByTagName("input");
 	let arr = []
-	for (let i = 0; i < 36; i++) {
+	for (let i = 0; i < 42; i++) {
 		arr.push(arrStart[i].value || 0)
 	}
 
@@ -20,10 +20,8 @@ async function resolve() {
 
 	let response = await fetch("/compute/" + stringArr);
 	let resString = "";
-	if (response.status == 204) {
-		console.log(response);
-		let resString = await response.text();
-		console.log(resString);
+	if (response.status == 202) {
+		resString = await response.text();
 	} else {
 		clear_output();
 		alert("Ошибка HTTP: " + response.status);
@@ -38,7 +36,7 @@ async function resolve() {
 			alert("Единственное решение СЛАУ отсутствует");
 			break;
 		}
-		document.getElementById("x" + i).innerHTML = parseFloat(x[i].toFixed(dec_len));
+		document.getElementById("x" + i).innerHTML = parseFloat(Number(x[i]).toFixed(6));
 	}
 }
 

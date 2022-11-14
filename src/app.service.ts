@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  compute(arr) {
-    this.to_float_array(arr);
+  compute(arr) {    
+    arr = this.to_float_array(arr);
 
     let a = [], b = [];
     for (let i = 0; i < 6; i++) {
@@ -14,6 +14,9 @@ export class AppService {
       b.push([]);
       b[i][0] = arr[7 * i + 6];
     }
+
+    // console.log(a);
+    // console.log(b);
 
     // приведение исходной матрицы к нормальному виду
     let At = this.TransMatrix(a);
@@ -49,6 +52,7 @@ export class AppService {
     }
 
     let res = this.stringify_array(x);
+    // console.log(res);
 
     return res;
   }
