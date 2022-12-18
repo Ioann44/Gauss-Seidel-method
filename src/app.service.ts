@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  compute(arr) {    
+  compute(arr) {
     arr = this.to_float_array(arr);
 
     let a = [], b = [];
@@ -31,8 +31,8 @@ export class AppService {
     let eps = 1 / Math.pow(10, dec_len * 2);
 
     while (computing--) {
+      inaccuracy = 0;
       for (let i = 0; i < 6; i++) {
-        inaccuracy = 0;
         x_i_old = x[i];
         x[i] = b2[i][0];
         for (let j = 0; j < 6; j++) {
@@ -47,6 +47,7 @@ export class AppService {
         inaccuracy += Math.pow(x[i] - x_i_old, 2);
       }
       if (inaccuracy <= eps) {
+        // console.log(computing);
         computing = 0;
       }
     }
